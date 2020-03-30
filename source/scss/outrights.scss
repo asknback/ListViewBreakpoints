@@ -13,6 +13,10 @@ body {
 	background: #eee;
 }
 
+div:empty {
+   display: none;
+}
+
 .list {
 	margin: 0;
 }
@@ -27,7 +31,7 @@ body {
 
 .eventinfo {
 	flex: 1;
-	min-height: 75px; /* 1px less due to bottom border*/
+	// min-height: 75px; /* 1px less due to bottom border*/
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -36,6 +40,7 @@ body {
 }
 
 .info-pre {
+	padding-bottom: 6px;
 	display: flex;
 	flex-direction: row;
 	font-size: 10px;
@@ -53,13 +58,21 @@ body {
 	font-size: 10px;
 	line-height: 16px;
 	color: rgba(0, 69, 114, .5);
-	align-items: space-between;
+	align-items: flex-end;
 	justify-content: space-between;
 	width: 100%;
 }
 
 .info-extra-more {
+	padding-top: 5px;
 	padding-right: 4px;
+}
+
+.participants {
+	min-height: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .participant {
@@ -69,15 +82,30 @@ body {
 	color: rgba(0,0,0,.87);
 }
 
+.participant-extra{
+	font-size: 10px;
+	line-height: 16px;
+	font-weight: 400;
+	color: rgba(0,0,0,.56);
+}
+
 .outcome_container {
 	flex: 1;
+	overflow-x: scroll;
 	display: flex;
+	align-items: stretch;
+	border: 4px #f6f6f6 solid;
+}
+
+.outcome_scroll {
+	flex: 1;
+	display: flex;
+	align-items: stretch;
 	flex-direction: row;
-	padding: 4px;
 }
 
 .outcome {
-	min-width: 60px;
+	min-width: 80px;
 	flex: 1;
 	background: #E6ECF1;
 	margin-left: 2px;
@@ -112,6 +140,15 @@ body {
 	text-align: center;
 }
 
+.innershadow {
+	min-width: 8px;
+	width: 8px;
+	background: transparent;
+	box-shadow: inset -16px 0em 12px -12px rgba(246,246,246,1);
+	position: sticky;
+		right: 0;
+}
+
 .outcome-label {
 	color: #00263A;
 	font-size: 12px;
@@ -140,7 +177,8 @@ body {
 	}
 
 	.info-pre {
-		width: 96px;
+		flex: 0 0 96px;
+		// width: 96px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -161,18 +199,27 @@ body {
 		line-height: 20px;
 	}
 
-
-	.grp-two {
-		display: none;
-	}
+	.participant-extra{
+	font-size: 12px;
+	line-height: 16px;
+ 
+}
 
 	.first {
 		margin-left: 8px;
 	}
 
+
 	.more {
 		display: flex;
+		position: sticky;
+		right: 0;
+		box-shadow: -4px 0px 4px 4px rgba(246,246,246,1);
 	}
+
+	.innershadow {
+	display: none;
+}
 
 	.outcome-label {
 		color: #00263A;
@@ -197,10 +244,18 @@ body {
 
 	.outcome_container {
 		flex: 3;
+		justify-content: flex-end;
+		overflow-x: auto;
 	}
 
 	.grp-two {
 		display: flex;
+	}
+
+	.more {
+		display: flex;
+		position: relative;
+		box-shadow: none;
 	}
 
 }
